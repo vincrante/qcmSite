@@ -1,4 +1,5 @@
 <?php
+include('PDO.php');
 // on teste si le visiteur a soumis le formulaire
 if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
 	// on teste l'existence de nos variables. On teste également si elles ne sont pas vides
@@ -8,32 +9,36 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
 			$erreur = 'Les 2 mots de passe sont différents.';
 		}
 		else {
-			$base = mysqli_connect ('localhost', 'root');
-			mysqli_select_db ($base, 'qcmsite');
-
 			// on recherche si ce login est déjà utilisé par un autre membre
-			$sql = 'SELECT count(*) FROM compte WHERE login="'.mysqli_escape_string($base,$_POST['login']).'"';
-			$req = mysqli_query($base,$sql) or die('Erreur SQL !<br />'.$sql.'<br />'.mysql_error());
-			$data = mysql_fetch_array($base,$req);
-
+                    $sql = $monPDO->prepare('SELECT count(*) '
+                                          . 'FROM compte '
+                                          . 'WHERE login="'.$_POST['login'].'"');
+                    
+                    $sql->execute();
+                    
+                    $res = $sql->fetch();
 			if ($data[0] == 0) {
-				$sql = 'INSERT INTO compte (`login`, `mdp`, `nom`, `prenom`, `role`) 
-						VALUES("'.mysqli_escape_string($base,$_POST['login'])
-							 .'", "'.mysqli_escape_string($base,md5($_POST['pass']))
-							 .'", "'.mysqli_escape_string($base,$_POST['nom'])
-							 .'", "'.mysqli_escape_string($base,$_POST['prenom'])
-							 .'","'.mysqli_escape_string($base,$_POST['role']).'")';
-
-				mysqli_query($base,$sql) or die('Erreur SQL !'.$sql.'<br />'.mysql_error());
-
+				$sql = $monPDO->prepare('INSERT INTO compte (`login`, `mdp`, `nom`, `prenom`, `role`) 
+                                                        VALUES("'.$_POST['login']
+                                                                 .'", "'.md5($_POST['pass'])
+                                                                 .'", "'.$_POST['nom']
+                                                                 .'", "'.$_POST['prenom']
+                                                                 .'","'.$_POST['role'].'")');
+                                try
+                                {
+				$sql->execute();
+                                }
+                                catch(PDOException $e)
+                                {
+                                    echo('Erreur SQL : '.$e->getMessage());
+                                }
 				session_start();
 				$_SESSION['login'] = $_POST['login'];
 				header('Location: membre.php');
 				exit();
 			}
 			else {
-				$erreur = 'Un membre possède déjà ce login.';
-			
+				$erreur = 'Un membre possède déjà ce login.';			
 			}
 		}
 	}else

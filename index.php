@@ -7,7 +7,7 @@ if (isset($_POST['connexion']) && $_POST['connexion'] == 'Connexion')
         {
 	// on teste si une entrée de la base contient ce couple login / password
         
-        $data = $monPDO->prepare('SELECT count(*) FROM compte WHERE login="'.mysqli_escape_string($base,$_POST['login']).'" AND mdp="'.mysqli_escape_string($base,md5($_POST['pass'])).'"');
+        $data = $monPDO->prepare('SELECT count(*) FROM compte WHERE login="'.$_POST['login'].'" AND mdp="'.md5($_POST['pass']).'"');
         $data->execute();       
         $res = $data->fetch();
         var_dump($res);
