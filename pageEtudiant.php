@@ -1,5 +1,7 @@
 <?php
-    $req = $monPDO->prepare('SELECT * FROM QCM as Q WHERE Q.visible ="1"');
+    $req = $monPDO->prepare('SELECT * '
+                          . 'FROM QCM as Q '
+                          . 'WHERE Q.visible ="1"');
     $req->execute();
     $tabRes = $req->fetchAll();
 ?>

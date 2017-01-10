@@ -7,13 +7,18 @@ if (isset($_POST['connexion']) && $_POST['connexion'] == 'Connexion')
         {
 	// on teste si une entrée de la base contient ce couple login / password
         
-        $data = $monPDO->prepare('SELECT count(*) FROM compte WHERE login="'.$_POST['login'].'" AND mdp="'.md5($_POST['pass']).'"');
+        $data = $monPDO->prepare('SELECT count(*) '
+                               . 'FROM compte '
+                               . 'WHERE login="'.$_POST['login'].'" '
+                               . 'AND mdp="'.md5($_POST['pass']).'"');
         $data->execute();       
         $res = $data->fetch();
 	// si on obtient une réponse, alors l'utilisateur est un membre
 	if ($res[0] == 1) {
             
-                $sql = $monPDO->prepare('SELECT role FROM compte WHERE login="'.$_POST['login'].'"');
+                $sql = $monPDO->prepare('SELECT role '
+                                      . 'FROM compte '
+                                      . 'WHERE login="'.$_POST['login'].'"');
                 $sql->execute();
                 $role = $sql->fetch();
 		session_start();
