@@ -13,6 +13,7 @@ if (!isset($_SESSION['login'])) {
 
 <body>
 Bienvenue <?php echo htmlentities(trim($_SESSION['login'])); ?> !<br />
+<?php echo('Vous êtes un '.$_SESSION['role']);?><br/>
 <a href="deconnexion.php">Déconnexion</a>
 </body>
 </html>
