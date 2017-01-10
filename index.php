@@ -1,4 +1,6 @@
 <?php
+    include 'PDO.php';
+    var_dump($monPDO);
 // on teste si le visiteur a soumis le formulaire de connexion
 if (isset($_POST['connexion']) && $_POST['connexion'] == 'Connexion') 
 {

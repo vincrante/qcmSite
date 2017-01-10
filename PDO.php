@@ -5,8 +5,8 @@ $password = "";
 try
 {
     $monPDO = new PDO($bd,$user,$password);
+    $_SESSION['PDO'] = $monPDO;
 } catch (PDOException $e) {
 echo ('Connexion échouée : '.$e->getMessage());
 }
-$_SESSION['PDO'] = $monPDO;
 ?>
