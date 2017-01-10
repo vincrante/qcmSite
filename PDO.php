@@ -1,7 +1,7 @@
 <?php
-$bd = 'mysqli_select_db=qcm;host:localhost';
-$user ="root";
-$password = "";
+$bd = 'mysql:dbname=qcmsite;host:localhost';
+$user ="siteQcm";
+$password = "\$iutinfo";
 
 try
 {

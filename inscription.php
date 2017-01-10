@@ -9,7 +9,7 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
 		}
 		else {
 			$base = mysqli_connect ('localhost', 'root');
-			mysqli_select_db ($base, 'qcm');
+			mysqli_select_db ($base, 'qcmsite');
 
 			// on recherche si ce login est déjà utilisé par un autre membre
 			$sql = 'SELECT count(*) FROM compte WHERE login="'.mysqli_escape_string($base,$_POST['login']).'"';
@@ -17,8 +17,8 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
 			$data = mysql_fetch_array($base,$req);
 
 			if ($data[0] == 0) {
-				$sql = 'INSERT INTO compte (`id`, `login`, `mdp`, `nom`, `prenom`, `role`) 
-						VALUES(NULL, "'.mysqli_escape_string($base,$_POST['login'])
+				$sql = 'INSERT INTO compte (`login`, `mdp`, `nom`, `prenom`, `role`) 
+						VALUES("'.mysqli_escape_string($base,$_POST['login'])
 							 .'", "'.mysqli_escape_string($base,md5($_POST['pass']))
 							 .'", "'.mysqli_escape_string($base,$_POST['nom'])
 							 .'", "'.mysqli_escape_string($base,$_POST['prenom'])
