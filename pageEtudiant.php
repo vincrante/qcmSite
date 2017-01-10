@@ -18,9 +18,9 @@
             <?php echo('Date de fin : '.$res['dateFin']); ?>
         </td>
         <td>
-            <form>
-                <input type="button" name="participer" value="begin">
-                <input type="button" name="resultat" value="result">
+            <form method="POST" action='PageQCM.php'>
+                <button type="submit" name="begin" value="<?php echo($res['nom']); ?>">Participer</button>
+                <button type="submit" name="result" value="<?php echo($res['nom']); ?>">Resultat</button>
             </form>
         </td>
     </tr>
