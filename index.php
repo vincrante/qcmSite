@@ -1,23 +1,25 @@
 <?php
 // on teste si le visiteur a soumis le formulaire de connexion
-if (isset($_POST['connexion']) && $_POST['connexion'] == 'Connexion') {
-	if ((isset($_POST['login']) && !empty($_POST['login'])) && (isset($_POST['pass']) && !empty($_POST['pass']))) {
+if (isset($_POST['connexion']) && $_POST['connexion'] == 'Connexion') 
+{
+	if ((isset($_POST['login']) && !empty($_POST['login'])) && (isset($_POST['pass']) && !empty($_POST['pass']))) 
+        {
 
-	$base = mysql_connect ('localhost:3307', 'siteQcm', '$iutinfo');
-	mysql_select_db ('siteQcm', $base);
+	$base = mysqli_connect ('localhost', 'root');
+	mysqli_select_db ($base,'qcm');
 
 	// on teste si une entrée de la base contient ce couple login / pass
-	$sql = 'SELECT count(*) FROM compte WHERE login="'.mysql_escape_string($_POST['login']).'" AND mdp="'.mysql_escape_string(md5($_POST['pass'])).'"';
-	$req = mysql_query($sql) or die('Erreur SQL !<br />'.$sql.'<br />'.mysql_error());
-	$data = mysql_fetch_array($req);
+	$sql = 'SELECT count(*) FROM compte WHERE login="'.mysqli_escape_string($base,$_POST['login']).'" AND mdp="'.mysqli_escape_string($base,md5($_POST['pass'])).'"';
+        $req = mysqli_query($base,$sql) or die('Erreur SQL !<br />'.$sql.'<br />'.mysqli_error($base));
+	$data = mysqli_fetch_array($req);
 
-	mysql_free_result($req);
-	mysql_close();
-
+	mysqli_free_result($req);
+	mysqli_close($base);
 	// si on obtient une réponse, alors l'utilisateur est un membre
 	if ($data[0] == 1) {
 		session_start();
 		$_SESSION['login'] = $_POST['login'];
+                //$_SESSION['role'] = 
 		header('Location: membre.php');
 		exit();
 	}

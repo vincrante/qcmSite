@@ -8,23 +8,23 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
 			$erreur = 'Les 2 mots de passe sont différents.';
 		}
 		else {
-			$base = mysql_connect ('localhost:3307', 'siteQcm', '$iutinfo');
-			mysql_select_db ('siteQcm', $base);
+			$base = mysqli_connect ('localhost', 'root');
+			mysqli_select_db ($base, 'qcm');
 
 			// on recherche si ce login est déjà utilisé par un autre membre
-			$sql = 'SELECT count(*) FROM compte WHERE login="'.mysql_escape_string($_POST['login']).'"';
-			$req = mysql_query($sql) or die('Erreur SQL !<br />'.$sql.'<br />'.mysql_error());
-			$data = mysql_fetch_array($req);
+			$sql = 'SELECT count(*) FROM compte WHERE login="'.mysqli_escape_string($base,$_POST['login']).'"';
+			$req = mysqli_query($base,$sql) or die('Erreur SQL !<br />'.$sql.'<br />'.mysql_error());
+			$data = mysql_fetch_array($base,$req);
 
 			if ($data[0] == 0) {
 				$sql = 'INSERT INTO compte (`id`, `login`, `mdp`, `nom`, `prenom`, `role`) 
-						VALUES(NULL, "'.mysql_escape_string($_POST['login'])
-							 .'", "'.mysql_escape_string(md5($_POST['pass']))
-							 .'", "'.mysql_escape_string($_POST['nom'])
-							 .'", "'.mysql_escape_string($_POST['prenom'])
-							 .'","'.mysql_escape_string($_POST['role']).'")';
+						VALUES(NULL, "'.mysqli_escape_string($base,$_POST['login'])
+							 .'", "'.mysqli_escape_string($base,md5($_POST['pass']))
+							 .'", "'.mysqli_escape_string($base,$_POST['nom'])
+							 .'", "'.mysqli_escape_string($base,$_POST['prenom'])
+							 .'","'.mysqli_escape_string($base,$_POST['role']).'")';
 
-				mysql_query($sql) or die('Erreur SQL !'.$sql.'<br />'.mysql_error());
+				mysqli_query($base,$sql) or die('Erreur SQL !'.$sql.'<br />'.mysql_error());
 
 				session_start();
 				$_SESSION['login'] = $_POST['login'];
