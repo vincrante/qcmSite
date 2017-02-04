@@ -31,7 +31,7 @@ if(isset($_POST['begin']))
             <?php
             foreach($tabResRep as $resRep)
             {
-                echo('<input type="checkbox" value="'.$resRep['reponse'].'"/>'.$resRep['reponse']);
+                echo('<input type="radio" value="'.$resRep['reponse'].'"/>'.$resRep['reponse']);
                 echo('<br/>');
             }
             ?>
@@ -41,4 +41,9 @@ if(isset($_POST['begin']))
 </table>
 <?php
     }
+echo('<br/>');
+echo ('<form method="POST" action="pageResultat.php">');
+echo ('<input type="submit" value="Valider"/>');
+echo ('</form>');
 }
+?>
