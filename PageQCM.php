@@ -21,9 +21,8 @@ if(isset($_POST['begin']))
         <td>
             <?php
                 $reqRep = $monPDO->prepare('SELECT * '
-                          . 'FROM QUESTION as Q, ASSOQUESTREPONSE as A, REPONSE as R '
-                          . 'WHERE Q.idQuestion = A.idQuestion '
-                          . 'AND A.idReponse = R.idReponse '
+                          . 'FROM QUESTION as Q, REPONSE as R '
+                          . 'WHERE Q.idQuestion = R.idQuestion '
                           . 'AND Q.idQuestion ='.$resQuest['idQuestion']);
                 $reqRep->execute();
                 $tabResRep = $reqRep->fetchAll();
