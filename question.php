@@ -25,7 +25,6 @@ if (isset($_POST['insertQuestion']) && $_POST['insertQuestion'] == 'valider')
     }
 
     $reponse = $reponse.'("'.$lastQuest.'","'.$_POST['reponse'.$index].'","'.$bool.'","'.$_POST['feedback'.$index].'")';
-    echo $reponse;
     $dataReponse = $monPDO->prepare($reponse);
     $dataReponse->execute();
 
