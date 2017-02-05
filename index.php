@@ -15,14 +15,13 @@ if (isset($_POST['connexion']) && $_POST['connexion'] == 'Connexion')
         $res = $data->fetch();
 	// si on obtient une réponse, alors l'utilisateur est un membre
 	if ($res[0] == 1) {
-            
                 $sql = $monPDO->prepare('SELECT idCompte, role '
                                       . 'FROM compte '
                                       . 'WHERE login="'.$_POST['login'].'"');
                 $sql->execute();
                 $role = $sql->fetch();
 		session_start();
-                $_SESSION['idCompte'] = $role[0];
+                $_SESSION['id'] = $role[0];
                 $_SESSION['role'] = $role[1];
 		$_SESSION['login'] = $_POST['login'];
 		header('Location: membre.php');
