@@ -1,3 +1,6 @@
+<?php
+if($_SESSION['role'] == "prof"){
+?>
 <ul id="menu">
     <li>
         <a href="#">Création</a>
@@ -14,4 +17,7 @@
         </ul>
     </li>
 </ul>
+<?php
+}
+?>
 

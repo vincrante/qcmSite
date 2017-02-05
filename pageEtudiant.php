@@ -1,4 +1,5 @@
 <?php
+if($_SESSION['role'] == "etudiant"){
     $req = $monPDO->prepare('SELECT * '
                           . 'FROM QCM as Q '
                           . 'WHERE Q.visible ="1"');
@@ -24,8 +25,9 @@
             </form>
         </td>
     </tr>
-   <?php
+<?php
    }
-   ?>    
+}
+?>    
 </table>
 

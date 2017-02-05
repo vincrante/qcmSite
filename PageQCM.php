@@ -1,5 +1,6 @@
 <?php
 include('PDO.php');
+if(isset($_SESSION['role']) && $_SESSION['role'] == "etudiant"){
 if(isset($_POST['begin']))
 {
     $reqQuest = $monPDO->prepare('SELECT * '
@@ -44,5 +45,10 @@ echo('<br/>');
 echo ('<input type="hidden" name="qcm" value ="'.$_POST['begin'].'"/>');
 echo ('<input type="submit" name="valid" value="Valider"/>');
 echo ('</form>');
+}
+else
+{
+    header("Location: index.php");
+}
 }
 ?>

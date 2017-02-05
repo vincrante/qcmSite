@@ -64,8 +64,7 @@ if(isset($_POST['valid']))
                 $idReponse = $tabSelectReponse[0];
                 
                 $reqResEtu = $monPDO->prepare('INSERT INTO resultat '
-                          . 'VALUES("'.$_SESSION['id'].'", "'.$idReponse['idReponse'].'");');
-                var_dump($reqResEtu);
+                                              . 'VALUES("'.$_SESSION['id'].'", "'.$idReponse['idReponse'].'");');
                 $reqResEtu->execute();
             ?>
             </form>
