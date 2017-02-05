@@ -10,35 +10,24 @@ if (isset($_POST['insertQuestion']) && $_POST['insertQuestion'] == 'valider')
     $lastQuest = $monPDO->lastInsertId();
         //$res = $data->fetch();
     $index = $_POST['index'];
-    $reponse = 'INSERT INTO reponse (reponse,juste,feedBack) VALUES ';
+    $reponse = 'INSERT INTO reponse (idQuestion,reponse,juste,feedBack) VALUES ';
     for ($i = 1; $i < $index ; $i++){
-        $bool = FALSE;
+        $bool = "0";
         if(isset($_POST['check'.$i])){
-            $bool = TRUE;
+            $bool =  "1";
         }
 
-        $reponse = $reponse.'("'.$_POST['reponse'.$i].'","'.$bool.'","'.$_POST['feedback'.$i].'"),';
+        $reponse = $reponse.'("'.$lastQuest.'","'.$_POST['reponse'.$i].'","'.$bool.'","'.$_POST['feedback'.$i].'"),';
     }
-    $bool = FALSE;
+    $bool = "0";
     if(isset($_POST['check'.$index])){
-        $bool = TRUE;
+        $bool = "1";
     }
 
-    $reponse = $reponse.'("'.$_POST['reponse'.$index].'","'.$bool.'","'.$_POST['feedback'.$index].'")';
+    $reponse = $reponse.'("'.$lastQuest.'","'.$_POST['reponse'.$index].'","'.$bool.'","'.$_POST['feedback'.$index].'")';
     echo $reponse;
     $dataReponse = $monPDO->prepare($reponse);
     $dataReponse->execute();
-    $lastRep = $monPDO->lastInsertId();
-
-    $assoQR = 'INSERT INTO assoQuestReponse(idQuestion,idReponse) VALUES ';
-    for ($y = 0; $y < $index-1; $y++){
-        $assoQR = $assoQR.' ('.$lastQuest.','.(intval($lastRep) + $y).'),';
-    }
-    $assoQR = $assoQR.' ('.$lastQuest.','.(intval($lastRep) + $index-1).')';
-
-    $dataAsso = $monPDO->prepare($assoQR);
-    echo $assoQR;
-    $dataAsso->execute();
 
 
     echo "<br/>Question enregistré<br/>";

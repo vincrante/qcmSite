@@ -10,4 +10,12 @@ $(document).ready(function(){
          $("#index").val(index-1),
         console.log(index)
     });
+    $("#less").click(function () {
+        if(index > 3) {
+            $("#reponse tr:last").remove(),
+                index--,
+                $("#index").val(index - 1),
+                console.log(index)
+        }
+    });
 });
