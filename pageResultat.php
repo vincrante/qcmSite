@@ -39,7 +39,6 @@ if(isset($_POST['valid']))
             <?php
             foreach($tabResRep as $resRep)
             {
-                echo($_POST[$resQuest['question']]);
                 if($resRep['juste'] == 1)
                 {
                     ?>
