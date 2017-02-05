@@ -55,7 +55,7 @@ if(isset($_POST['valid']))
                 echo('<br/>');
             }
             
-                /*$reqSelectReponse = $monPDO->prepare('SELECT idReponse '
+                $reqSelectReponse = $monPDO->prepare('SELECT idReponse '
                                                     . 'FROM reponse '
                                                     . 'WHERE reponse = "'.$_POST[$resQuest['question']].'"');
                 $reqSelectReponse->execute();
@@ -66,7 +66,7 @@ if(isset($_POST['valid']))
                 $reqResEtu = $monPDO->prepare('INSERT INTO resultat '
                           . 'VALUES("'.$_SESSION['id'].'", "'.$idReponse['idReponse'].'");');
                 var_dump($reqResEtu);
-                $reqResEtu->execute();*/
+                $reqResEtu->execute();
             ?>
             </form>
         </td>
