@@ -43,7 +43,8 @@ if(isset($_POST['begin']))
     }
 echo('<br/>');
 echo ('<form method="POST" action="pageResultat.php">');
-echo ('<input type="submit" value="Valider"/>');
+echo ('<input type="hidden" name="qcm" value ="'.$_POST['begin'].'"/>');
+echo ('<input type="submit" name="valid" value="Valider"/>');
 echo ('</form>');
 }
 ?>
