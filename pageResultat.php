@@ -39,14 +39,18 @@ if(isset($_POST['valid']))
             <?php
             foreach($tabResRep as $resRep)
             {
+                echo($_POST[$resQuest['question']]);
                 if($resRep['juste'] == 1)
                 {
-                    echo('<label class="juste"> <input type="radio" class="juste" value="'.$resRep['reponse'].'"/>'.$resRep['reponse'].'</label>');
+                    ?>
+                        <label class='juste'> <input type="radio" value="<?php $resRep['reponse'] ?>" <?php if($resRep['reponse'] == $_POST[$resQuest['question']]) echo('checked="checked"')?>/><?php echo($resRep['reponse']); ?></label>
+                    <?php
                 }
                 else {
-                    echo('<label class="faux"> <input type="radio" class="juste" value="'.$resRep['reponse'].'"/>'.$resRep['reponse'].'</label>');
-
-                }
+                    ?>
+                       <label class='faux'> <input type="radio" value="<?php $resRep['reponse'] ?>" <?php if($resRep['reponse'] == $_POST[$resQuest['question']]) echo('checked="checked"')?>/><?php echo($resRep['reponse']); ?></label>
+                    <?php
+                    }
                 echo('<br/>');
             }
             ?>
