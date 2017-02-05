@@ -1,5 +1,6 @@
 <?php
 include('PDO.php');
+session_start();
 ?>
 <html>
 <head>
@@ -10,6 +11,7 @@ include('PDO.php');
 <?php
 if(isset($_POST['valid']))
 {
+    $note = 0 ;
     $reqQuest = $monPDO->prepare('SELECT * '
                           . 'FROM QUESTION as QU, ASSOQCMQUEST as A, QCM as QC '
                           . 'WHERE QU.idQuestion = A.idQuestion '
@@ -42,7 +44,7 @@ if(isset($_POST['valid']))
                 if($resRep['juste'] == 1)
                 {
                     ?>
-                        <label class='juste'> <input type="radio" value="<?php $resRep['reponse'] ?>" <?php if($resRep['reponse'] == $_POST[$resQuest['question']]) echo('checked="checked"')?>/><?php echo($resRep['reponse']); ?></label>
+                        <label class='juste'> <input type="radio" value="<?php $resRep['reponse'] ?>" <?php if($resRep['reponse'] == $_POST[$resQuest['question']]){ echo('checked="checked"'); $note += 1; }?>/><?php echo($resRep['reponse']); ?></label>
                     <?php
                 }
                 else {
@@ -52,6 +54,19 @@ if(isset($_POST['valid']))
                     }
                 echo('<br/>');
             }
+            
+                /*$reqSelectReponse = $monPDO->prepare('SELECT idReponse '
+                                                    . 'FROM reponse '
+                                                    . 'WHERE reponse = "'.$_POST[$resQuest['question']].'"');
+                $reqSelectReponse->execute();
+                $tabSelectReponse = $reqSelectReponse->fetchAll();
+                
+                $idReponse = $tabSelectReponse[0];
+                
+                $reqResEtu = $monPDO->prepare('INSERT INTO resultat '
+                          . 'VALUES("'.$_SESSION['id'].'", "'.$idReponse['idReponse'].'");');
+                var_dump($reqResEtu);
+                $reqResEtu->execute();*/
             ?>
             </form>
         </td>
@@ -60,8 +75,30 @@ if(isset($_POST['valid']))
 <?php
     }
 echo('<br/>');
-echo ('<form method="POST" action="pageResultat.php">');
-echo ('<input type="submit" value="Valider"/>');
 echo ('</form>');
+
+    $reqNbQuest = $monPDO->prepare('SELECT count(*) '
+                          . 'FROM QUESTION as QU, ASSOQCMQUEST as A, QCM as QC '
+                          . 'WHERE QU.idQuestion = A.idQuestion '
+                          . 'AND A.idQcm = QC.idQcm '
+                          . 'AND QC.nom ="'.$_POST['qcm'].'"');
+    $reqNbQuest->execute();
+    $tabResNbQuest = $reqNbQuest->fetchAll();
+    $nbQuest = $tabResNbQuest[0];
+    
+    $reqIdQcm = $monPDO->prepare('SELECT idQcm '
+                                        . 'FROM qcm '
+                                        . 'WHERE nom = "'.$_POST['qcm'].'"');
+    $reqIdQcm->execute();
+    $tabIdQcm = $reqIdQcm->fetchAll();    
+    $idQcm = $tabIdQcm[0];
+    
+    $note = (($note / $nbQuest[0])*20);
+    
+    $reqResEtu = $monPDO->prepare('INSERT INTO note '
+                . 'VALUES("'.$_SESSION['id'].'", "'.$idQcm['0'].'", "'.$note.'");');
+    $reqResEtu->execute();    
+    
+    echo("Votre note sur ce QCM est de : ".$note);
 }
 ?>
