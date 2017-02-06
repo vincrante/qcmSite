@@ -1,6 +1,28 @@
 <?php
 include('PDO.php');
-if(isset($_GET['modifQuestion']) && $_GET['modifQuestion'] != null ){
+
+if(isset($_POST['modifQuestionValider']) && $_POST['modifQuestionValider']=='valider' ){
+
+    for($i =1; $i<=$_POST['index'];$i++){
+
+        $check = 0;
+        if(isset($_POST["check".$i])){
+            $check = 1;
+        }
+
+        $data = $monPDO->prepare('UPDATE reponse
+                                  SET juste ="'.$check.'",feedback ="'.$_POST["feedback".$i].'", reponse="'.$_POST["reponse".$i].'"
+                                  WHERE idReponse ="'.$_POST["idR".$i].'"');
+        $data->execute();
+    }
+    $data = $monPDO->prepare('UPDATE question
+                                      SET question ="'.$_POST["question"].'",theme ="'.$_POST["theme"].'"
+                                      WHERE idReponse ="'.$_POST["idQ"].'"');
+    $data->execute();
+    header('Location: membre.php?nav=modifquest&modifQuestion='.$_POST["idQ"]);
+    exit();
+
+}else{
 $data = $monPDO->prepare('SELECT *
                               FROM question q, reponse r
                               WHERE r.idQuestion = q.idQuestion
@@ -19,7 +41,7 @@ $row = $data->fetch();
     <body>
         <h2>Modifier question</h2>
         <a href="membre.php?nav=listquest">liste des Question</a><br/>
-        <form action="modifierQuestion.php" method="post">
+        <form action=""membre.php?nav=modifquest&modifQuestion=<?php echo $_GET['modifQuestion']?>" method="post">
             question : <input type="text" name="question" value="<?php echo $row[1] ?>"><br/>
             Theme : <input type="text" name="theme" value="<?php echo $row[2] ?>"><br/>
             <table id="reponse">
@@ -45,26 +67,9 @@ $row = $data->fetch();
     </form>
     </body>
 </html>
-<?php }elseif(isset($_POST['modifQuestionValider']) && $_POST['modifQuestionValider']=='valider' ){
-    for($i =1; $i<$_POST['index'];$i++){
-
-        $check = 0;
-        if(isset($_POST["check".$i])){
-            $check = 1;
-        }
-        $data = $monPDO->prepare('UPDATE reponse
-                                  SET juste ="'.$check.'",feedback ="'.$_POST["feedback".$i].'", reponse="'.$_POST["reponse".$i].'"
-                                  WHERE idReponse ="'.$_POST["idR".$i].'"');
-        $data->execute();
-    }
-    $data = $monPDO->prepare('UPDATE question
-                                      SET question ="'.$_POST["question"].'",theme ="'.$_POST["theme"].'"
-                                      WHERE idReponse ="'.$_POST["idQ"].'"');
-    $data->execute();
-    header('Location: modifierQuestion.php?modifQuestion='.$_POST["idQ"]);
-    exit();
-
+<?php
 }
+
 
 
 ?>
