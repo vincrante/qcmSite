@@ -8,6 +8,7 @@ if($_SESSION['role'] == "prof"){
             <li><a href="membre.php?nav=creerqcm">Créer QCM</a></li>
             <li><a href="membre.php?nav=creerquest">Créer Question</a></li>
             <li><a href="membre.php?nav=listquest">liste des Question</a></li>
+            <li><a href="membre.php?nav=mesqcm">Mes QCM</a></li>
         </ul>
     </li>
 </ul>

@@ -64,7 +64,6 @@ if (isset($_POST['connexion']) && $_POST['connexion'] == 'Connexion')
             </div>
         </form>
     </div>
-<a href="inscription.php">Vous inscrire</a>
 <?php
 if (isset($erreur)) echo '<br /><br />',$erreur;
 ?>

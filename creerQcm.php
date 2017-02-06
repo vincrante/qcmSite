@@ -27,7 +27,7 @@ if (isset($_POST['creerQcm']) && $_POST['creerQcm'] == 'valider' && isset($_SESS
     echo $qcm;
     $dataQCM = $monPDO->prepare($qcm);
     $dataQCM->execute();
-    header('location: membre.php');
+    header('location: membre.php?nav=mesqcm');
 }
 ?>
 <html>

@@ -32,6 +32,9 @@ Bienvenue <?php echo htmlentities(trim($_SESSION['login'])); ?> !<br />
                 case 'listquest':
                     include ('listQuestion.php');
                     break;
+                case 'mesqcm':
+                    include ('mesQcm.php');
+                    break;
                 default:
                     include('pageProf.php');
             }

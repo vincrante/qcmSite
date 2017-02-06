@@ -2,16 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1b7f478-8e8c-4e77-99f6-9849336c3c23" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/listQuestion.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mesQcm.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/index.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PageQCM.php" afterPath="$PROJECT_DIR$/PageQCM.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/creerQcm.php" afterPath="$PROJECT_DIR$/creerQcm.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deconnexion.php" afterPath="$PROJECT_DIR$/deconnexion.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/membre.php" afterPath="$PROJECT_DIR$/membre.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modifierQuestion.php" afterPath="$PROJECT_DIR$/modifierQuestion.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pageProf.php" afterPath="$PROJECT_DIR$/pageProf.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/question.php" afterPath="$PROJECT_DIR$/question.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -44,25 +41,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="question.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/question.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="88" />
-              <folding>
-                <marker date="1486338248959" expanded="true" signature="138:266" ph="INSERT INTO question... " />
-                <marker date="1486338248959" expanded="true" signature="380:401" ph="INSERT INTO reponse... " />
-                <marker date="1486338248959" expanded="true" signature="380:442" ph="INSERT INTO reponse... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="modifierQuestion.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="modifierQuestion.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modifierQuestion.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-92">
-              <caret line="20" column="69" lean-forward="false" selection-start-line="20" selection-start-column="69" selection-end-line="20" selection-end-column="69" />
+            <state relative-caret-position="520">
+              <caret line="56" column="76" lean-forward="false" selection-start-line="54" selection-start-column="34" selection-end-line="56" selection-end-column="76" />
               <folding>
                 <marker date="1486340153053" expanded="true" signature="122:252" ph="SELECT * FRO... question" />
                 <marker date="1486340153053" expanded="true" signature="122:302" ph="SELECT * FRO... question" />
@@ -74,13 +57,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="listQuestion.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/listQuestion.php">
+      <file leaf-file-name="mesQcm.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mesQcm.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="62" lean-forward="false" selection-start-line="22" selection-start-column="62" selection-end-line="22" selection-end-column="62" />
+            <state relative-caret-position="185">
+              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding>
-                <marker date="1486340077702" expanded="true" signature="161:183" ph="SELECT * FRO... question" />
+                <marker date="1486371735423" expanded="true" signature="153:262" ph="UPDATE qcm S... " />
+                <marker date="1486371735423" expanded="true" signature="153:281" ph="UPDATE qcm S... " />
+                <marker date="1486371735423" expanded="true" signature="153:727" ph="UPDATE repon... " />
+                <marker date="1486371735423" expanded="true" signature="414:584" ph="SELECT * FRO... qcm" />
+                <marker date="1486371735423" expanded="true" signature="414:603" ph="SELECT * FRO... qcm" />
+                <marker date="1486371735423" expanded="true" signature="414:634" ph="SELECT * FRO... qcm" />
+                <marker date="1486371735423" expanded="true" signature="758:877" ph="SELECT * FRO... qcm" />
+                <marker date="1486371735423" expanded="true" signature="968:971" ph="..." />
+                <marker date="1486371735423" expanded="true" signature="968:1035" ph="..." />
+                <marker date="1486371735423" expanded="true" signature="1040:1143" ph="..." />
+                <marker date="1486371735423" expanded="true" signature="1040:1161" ph="..." />
+                <marker date="1486371735423" expanded="true" signature="1040:1212" ph="..." />
+                <marker date="1486371735423" expanded="true" signature="1040:1213" ph="..." />
+                <marker date="1486371735423" expanded="true" signature="1040:1229" ph="..." />
+                <marker date="1486371735423" expanded="true" signature="1040:1230" ph="..." />
+                <marker date="1486371735423" expanded="true" signature="1040:1511" ph="..." />
               </folding>
             </state>
           </provider>
@@ -89,42 +87,9 @@
       <file leaf-file-name="creerQcm.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/creerQcm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="53" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="54" />
+            <state relative-caret-position="306">
+              <caret line="18" column="3" lean-forward="true" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="creerQcm.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/creerQcm.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="29" column="35" lean-forward="true" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
-              <folding>
-                <marker date="1486338446248" expanded="true" signature="232:410" ph="INSERT INTO qcm... " />
-                <marker date="1486338446248" expanded="true" signature="461:478" ph="INSERT INTO qcm... " />
-                <marker date="1486338446248" expanded="true" signature="461:587" ph="INSERT INTO qcm... " />
-                <marker date="1486338446248" expanded="true" signature="461:605" ph="INSERT INTO qcm... " />
-                <marker date="1486338446248" expanded="true" signature="461:618" ph="INSERT INTO qcm... " />
-                <marker date="1486338446248" expanded="true" signature="461:639" ph="INSERT INTO qcm... " />
-                <marker date="1486338446248" expanded="true" signature="747:796" ph="INSERT INTO qcm... " />
-                <marker date="1486338446248" expanded="true" signature="1105:2032" ph="..." />
-                <marker date="1486338446248" expanded="true" signature="1116:1252" ph="..." />
-                <marker date="1486338446248" expanded="true" signature="1263:2032" ph="..." />
-                <marker date="1486338446248" expanded="true" signature="1359:2032" ph="..." />
-                <marker date="1486338446248" expanded="true" signature="1379:2032" ph="..." />
-                <marker date="1486338446248" expanded="true" signature="1400:1505" ph="..." />
-                <marker date="1486338446248" expanded="true" signature="1526:1665" ph="..." />
-                <marker date="1486338446248" expanded="true" signature="1686:1794" ph="..." />
-                <marker date="1486338446248" expanded="true" signature="1815:1880" ph="..." />
-                <marker date="1486338446248" expanded="true" signature="1840:1875" ph="..." />
-                <marker date="1486338446248" expanded="true" signature="1901:2032" ph="..." />
-                <marker date="1486338446248" expanded="true" signature="1905:2032" ph="..." />
-                <marker date="1486338446248" expanded="true" signature="1945:2032" ph="..." />
-                <marker date="1486338446248" expanded="true" signature="2034:2056" ph="SELECT * FRO... question" />
-                <marker date="1486338446248" expanded="true" signature="2522:2544" ph="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -132,7 +97,7 @@
       <file leaf-file-name="PageQCM.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PageQCM.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
+            <state relative-caret-position="-7">
               <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
               <folding />
             </state>
@@ -142,8 +107,8 @@
       <file leaf-file-name="pageResultat.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pageResultat.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="54" lean-forward="true" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
+            <state relative-caret-position="418">
+              <caret line="84" column="45" lean-forward="false" selection-start-line="84" selection-start-column="44" selection-end-line="84" selection-end-column="45" />
               <folding>
                 <marker date="1486332423467" expanded="true" signature="2465:2515" ph="..." />
                 <marker date="1486332423467" expanded="true" signature="2466:2515" ph="INSERT INTO resultat... " />
@@ -153,11 +118,35 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="inscription.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inscription.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1486246207318" expanded="true" signature="1024:1528" ph="INSERT INTO compte... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="656">
+              <caret line="65" column="10" lean-forward="false" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
+              <folding>
+                <element signature="e#1630#1711#0#PHP" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="membre.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/membre.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="28" column="32" lean-forward="false" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="32" />
+            <state relative-caret-position="350">
+              <caret line="34" column="28" lean-forward="false" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -166,19 +155,28 @@
       <file leaf-file-name="pageProf.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pageProf.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="73" lean-forward="true" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="73" />
+            <state relative-caret-position="170">
+              <caret line="10" column="55" lean-forward="false" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pageEtudiant.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pageEtudiant.php">
+      <file leaf-file-name="creerQcm.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/creerQcm.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="53" lean-forward="false" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
-              <folding />
+            <state relative-caret-position="493">
+              <caret line="29" column="43" lean-forward="false" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
+              <folding>
+                <marker date="1486371156548" expanded="true" signature="232:410" ph="INSERT INTO qcm... " />
+                <marker date="1486371156548" expanded="true" signature="461:478" ph="INSERT INTO qcm... " />
+                <marker date="1486371156548" expanded="true" signature="461:587" ph="INSERT INTO qcm... " />
+                <marker date="1486371156548" expanded="true" signature="461:605" ph="INSERT INTO qcm... " />
+                <marker date="1486371156548" expanded="true" signature="461:618" ph="INSERT INTO qcm... " />
+                <marker date="1486371156548" expanded="true" signature="461:639" ph="INSERT INTO qcm... " />
+                <marker date="1486371156548" expanded="true" signature="747:796" ph="INSERT INTO qcm... " />
+                <marker date="1486371156548" expanded="true" signature="2045:2067" ph="SELECT * FRO... question" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -198,11 +196,11 @@
       <find>$_POST</find>
       <find>$quest</find>
       <find>+</find>
-      <find>tr</find>
       <find>td</find>
       <find>body</find>
       <find>br</find>
       <find>breal</find>
+      <find>tr</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -213,18 +211,20 @@
       <list>
         <option value="$PROJECT_DIR$/ScriptQuestion.js" />
         <option value="$PROJECT_DIR$/creerQcm.js" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/header.php" />
         <option value="$PROJECT_DIR$/menu.php" />
         <option value="$PROJECT_DIR$/deconnexion.php" />
         <option value="$PROJECT_DIR$/question.php" />
-        <option value="$PROJECT_DIR$/creerQcm.php" />
         <option value="$PROJECT_DIR$/PageQCM.php" />
         <option value="$PROJECT_DIR$/pageEtudiant.php" />
-        <option value="$PROJECT_DIR$/membre.php" />
-        <option value="$PROJECT_DIR$/pageProf.php" />
         <option value="$PROJECT_DIR$/listQuestion.php" />
         <option value="$PROJECT_DIR$/modifierQuestion.php" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/membre.php" />
+        <option value="$PROJECT_DIR$/pageProf.php" />
+        <option value="$PROJECT_DIR$/creerQcm.php" />
+        <option value="$PROJECT_DIR$/mesQcm.php" />
       </list>
     </option>
   </component>
@@ -471,7 +471,7 @@
       <updated>1484034527981</updated>
       <workItem from="1486246482719" duration="4458000" />
       <workItem from="1486298505983" duration="16112000" />
-      <workItem from="1486318815721" duration="18557000" />
+      <workItem from="1486318815721" duration="22188000" />
     </task>
     <task id="LOCAL-00001" summary="Modif de question.php et ajout modif question">
       <created>1486319484164</created>
@@ -487,11 +487,18 @@
       <option name="project" value="LOCAL" />
       <updated>1486332924166</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="changemen syteme de page + ajout liste des question">
+      <created>1486340240587</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1486340240587</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39127000" />
+    <option name="totallyTimeSpent" value="42758000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -573,7 +580,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Modif de question.php et ajout modif question" />
     <MESSAGE value="ajout QCM" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout QCM" />
+    <MESSAGE value="changemen syteme de page + ajout liste des question" />
+    <option name="LAST_COMMIT_MESSAGE" value="changemen syteme de page + ajout liste des question" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -804,33 +812,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="39" lean-forward="true" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
-          <folding>
-            <element signature="e#1630#1711#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/deconnexion.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pageResultat.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="54" lean-forward="true" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
-          <folding>
-            <marker date="1486332423467" expanded="true" signature="2465:2515" ph="..." />
-            <marker date="1486332423467" expanded="true" signature="2466:2515" ph="INSERT INTO resultat... " />
-            <marker date="1486332423467" expanded="true" signature="3550:3649" ph="INSERT INTO note... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -854,9 +840,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PageQCM.php">
+    <entry file="file://$PROJECT_DIR$/listQuestion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="33" lean-forward="true" selection-start-line="7" selection-start-column="31" selection-end-line="12" selection-end-column="33" />
+          <folding>
+            <marker date="1486340077702" expanded="true" signature="161:183" ph="SELECT * FRO... question" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pageResultat.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="84" column="45" lean-forward="false" selection-start-line="84" selection-start-column="44" selection-end-line="84" selection-end-column="45" />
+          <folding>
+            <marker date="1486332423467" expanded="true" signature="2465:2515" ph="..." />
+            <marker date="1486332423467" expanded="true" signature="2466:2515" ph="INSERT INTO resultat... " />
+            <marker date="1486332423467" expanded="true" signature="3550:3649" ph="INSERT INTO note... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inscription.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1486246207318" expanded="true" signature="1024:1528" ph="INSERT INTO compte... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="656">
+          <caret line="65" column="10" lean-forward="false" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
+          <folding>
+            <element signature="e#1630#1711#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/membre.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="34" column="28" lean-forward="false" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pageProf.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
+          <caret line="10" column="55" lean-forward="false" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/creerQcm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="3" lean-forward="true" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PageQCM.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
           <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
           <folding />
         </state>
@@ -864,79 +924,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/creerQcm.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="29" column="35" lean-forward="true" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
+        <state relative-caret-position="493">
+          <caret line="29" column="43" lean-forward="false" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
           <folding>
-            <marker date="1486338446248" expanded="true" signature="232:410" ph="INSERT INTO qcm... " />
-            <marker date="1486338446248" expanded="true" signature="461:478" ph="INSERT INTO qcm... " />
-            <marker date="1486338446248" expanded="true" signature="461:587" ph="INSERT INTO qcm... " />
-            <marker date="1486338446248" expanded="true" signature="461:605" ph="INSERT INTO qcm... " />
-            <marker date="1486338446248" expanded="true" signature="461:618" ph="INSERT INTO qcm... " />
-            <marker date="1486338446248" expanded="true" signature="461:639" ph="INSERT INTO qcm... " />
-            <marker date="1486338446248" expanded="true" signature="747:796" ph="INSERT INTO qcm... " />
-            <marker date="1486338446248" expanded="true" signature="1105:2032" ph="..." />
-            <marker date="1486338446248" expanded="true" signature="1116:1252" ph="..." />
-            <marker date="1486338446248" expanded="true" signature="1263:2032" ph="..." />
-            <marker date="1486338446248" expanded="true" signature="1359:2032" ph="..." />
-            <marker date="1486338446248" expanded="true" signature="1379:2032" ph="..." />
-            <marker date="1486338446248" expanded="true" signature="1400:1505" ph="..." />
-            <marker date="1486338446248" expanded="true" signature="1526:1665" ph="..." />
-            <marker date="1486338446248" expanded="true" signature="1686:1794" ph="..." />
-            <marker date="1486338446248" expanded="true" signature="1815:1880" ph="..." />
-            <marker date="1486338446248" expanded="true" signature="1840:1875" ph="..." />
-            <marker date="1486338446248" expanded="true" signature="1901:2032" ph="..." />
-            <marker date="1486338446248" expanded="true" signature="1905:2032" ph="..." />
-            <marker date="1486338446248" expanded="true" signature="1945:2032" ph="..." />
-            <marker date="1486338446248" expanded="true" signature="2034:2056" ph="SELECT * FRO... question" />
-            <marker date="1486338446248" expanded="true" signature="2522:2544" ph="..." />
+            <marker date="1486371156548" expanded="true" signature="232:410" ph="INSERT INTO qcm... " />
+            <marker date="1486371156548" expanded="true" signature="461:478" ph="INSERT INTO qcm... " />
+            <marker date="1486371156548" expanded="true" signature="461:587" ph="INSERT INTO qcm... " />
+            <marker date="1486371156548" expanded="true" signature="461:605" ph="INSERT INTO qcm... " />
+            <marker date="1486371156548" expanded="true" signature="461:618" ph="INSERT INTO qcm... " />
+            <marker date="1486371156548" expanded="true" signature="461:639" ph="INSERT INTO qcm... " />
+            <marker date="1486371156548" expanded="true" signature="747:796" ph="INSERT INTO qcm... " />
+            <marker date="1486371156548" expanded="true" signature="2045:2067" ph="SELECT * FRO... question" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/creerQcm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="53" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/membre.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="28" column="32" lean-forward="false" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/listQuestion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="62" lean-forward="false" selection-start-line="22" selection-start-column="62" selection-end-line="22" selection-end-column="62" />
-          <folding>
-            <marker date="1486340077702" expanded="true" signature="161:183" ph="SELECT * FRO... question" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pageProf.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="73" lean-forward="true" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="73" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modifierQuestion.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-92">
-          <caret line="20" column="69" lean-forward="false" selection-start-line="20" selection-start-column="69" selection-end-line="20" selection-end-column="69" />
+        <state relative-caret-position="520">
+          <caret line="56" column="76" lean-forward="false" selection-start-line="54" selection-start-column="34" selection-end-line="56" selection-end-column="76" />
           <folding>
             <marker date="1486340153053" expanded="true" signature="122:252" ph="SELECT * FRO... question" />
             <marker date="1486340153053" expanded="true" signature="122:302" ph="SELECT * FRO... question" />
             <marker date="1486340153053" expanded="true" signature="122:331" ph="SELECT * FRO... question" />
             <marker date="1486340153053" expanded="true" signature="2289:2509" ph="UPDATE repon... " />
             <marker date="1486340153053" expanded="true" signature="2575:2771" ph="UPDATE quest... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mesQcm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <marker date="1486371735423" expanded="true" signature="153:262" ph="UPDATE qcm S... " />
+            <marker date="1486371735423" expanded="true" signature="153:281" ph="UPDATE qcm S... " />
+            <marker date="1486371735423" expanded="true" signature="153:727" ph="UPDATE repon... " />
+            <marker date="1486371735423" expanded="true" signature="414:584" ph="SELECT * FRO... qcm" />
+            <marker date="1486371735423" expanded="true" signature="414:603" ph="SELECT * FRO... qcm" />
+            <marker date="1486371735423" expanded="true" signature="414:634" ph="SELECT * FRO... qcm" />
+            <marker date="1486371735423" expanded="true" signature="758:877" ph="SELECT * FRO... qcm" />
+            <marker date="1486371735423" expanded="true" signature="968:971" ph="..." />
+            <marker date="1486371735423" expanded="true" signature="968:1035" ph="..." />
+            <marker date="1486371735423" expanded="true" signature="1040:1143" ph="..." />
+            <marker date="1486371735423" expanded="true" signature="1040:1161" ph="..." />
+            <marker date="1486371735423" expanded="true" signature="1040:1212" ph="..." />
+            <marker date="1486371735423" expanded="true" signature="1040:1213" ph="..." />
+            <marker date="1486371735423" expanded="true" signature="1040:1229" ph="..." />
+            <marker date="1486371735423" expanded="true" signature="1040:1230" ph="..." />
+            <marker date="1486371735423" expanded="true" signature="1040:1511" ph="..." />
           </folding>
         </state>
       </provider>
