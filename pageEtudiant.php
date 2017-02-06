@@ -36,8 +36,8 @@ if($_SESSION['role'] == "etudiant"){
                      </td>
                      <td>
                          <div class="action">
-                             <a href="membre.php?nav=frqcm&idQcm=<?php echo($res['idQcm']); ?>">Participer</a>
-                             <a href="membre.php?nav=vrqcm&idQcm=<?php echo($res['idQcm']); ?>">Resultat</a>
+                             <a href="membre.php?nav=frqcm&idQcm=<?php echo($res['idQcm']); ?>"><input type="button" id="button_pageEtudiant" value="Participer" /></a>
+                             <a href="membre.php?nav=vrqcm&idQcm=<?php echo($res['idQcm']); ?>"><input type="button" id="button_pageEtudiant" value="Resultat" /></a>
                          </div>
                      </td>
                  </tr>
