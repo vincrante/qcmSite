@@ -39,32 +39,36 @@ $row = $data->fetch();
     </head>
 
     <body>
-        <h2>Modifier question</h2>
-        <a href="membre.php?nav=listquest">liste des Question</a><br/>
-        <form action=""membre.php?nav=modifquest&modifQuestion=<?php echo $_GET['modifQuestion']?>" method="post">
-            question : <input type="text" name="question" value="<?php echo $row[1] ?>"><br/>
-            Theme : <input type="text" name="theme" value="<?php echo $row[2] ?>"><br/>
-            <table id="reponse">
-                <tr>Réponse</tr>
-                <?php
-                $index = 1;
-                $idQuest = $row[0];
-                do {
-                    $quest ="<tr><td>Réponse" . $index . "  : <input type='text' name = 'reponse" . $index . "' value=" . $row[5] . "></td><td>Vrai ? : <input type='checkbox' name='check" . $index . "'";
-                    if ($row[6] == 1) {
-                        $quest = $quest." checked ";
-                    }
-                    $quest = $quest."></td><td>FeedBack : <input type='text' name='feedback" . $index . "' value=" . $row[7] . "></td><input name ='idR".$index."' type='hidden' value='". $row[3]."'/></tr>";
-                    echo $quest;
-                    $index++;
-                } while ($row = $data->fetch());
+        <fieldset>
+            <legend>Modifier question</legend>
+            <div id="retourListe"><a href="membre.php?nav=listquest"><input type="button" value="Liste des Questions"/></a><br/><br/></div>
+            <form action=""membre.php?nav=modifquest&modifQuestion=<?php echo $_GET['modifQuestion']?>" method="post">
+                question : <input type="text" name="question" value="<?php echo $row[1] ?>"><br/>
+                Theme : <input type="text" name="theme" value="<?php echo $row[2] ?>"><br/><br/>
+                <table id="reponse">
+                    <tr>Réponse</tr>
+                    <?php
+                    $index = 1;
+                    $idQuest = $row[0];
+                    do {
+                        $quest ="<tr><td>Réponse" . $index . "  : <input type='text' name = 'reponse" . $index . "' value=" . $row[5] . "></td><td>Vrai ? : <input type='checkbox' name='check" . $index . "'";
+                        if ($row[6] == 1) {
+                            $quest = $quest." checked ";
+                        }
+                        $quest = $quest."></td><td>FeedBack : <input type='text' name='feedback" . $index . "' value=" . $row[7] . "></td><input name ='idR".$index."' type='hidden' value='". $row[3]."'/></tr>";
+                        echo $quest;
+                        $index++;
+                    } while ($row = $data->fetch());
 
-                ?>
-            </table>
-        <input name ="index" id="index" type="hidden" value="<?php echo $index-1 ?>"/>
-        <input name ="idQ" id="idQ" type="hidden" value="<?php echo $idQuest ?>"/>
-        <input type="submit"  name="modifQuestionValider" value="valider">
-    </form>
+                    ?>
+                </table>
+                <br/>
+            <input name ="index" id="index" type="hidden" value="<?php echo $index-1 ?>"/>
+            <input name ="idQ" id="idQ" type="hidden" value="<?php echo $idQuest ?>"/>
+            <input type="submit"  name="modifQuestionValider" value="valider">
+        </form>
+        </fieldset>
+        
     </body>
 </html>
 <?php

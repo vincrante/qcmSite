@@ -17,10 +17,11 @@ if(isset($_GET['idqcm']) && $_GET['idqcm'] != null && isset($_GET['act']) ) {
 
         $resQues->execute();
         $data = $resQues->fetch();
-        echo "<h2>".$data[0]."</h2>";
+        echo "<fieldset>";
+        echo "<legend>".$data[0]."</legend>";
 
         if($data[1]!=null){
-            echo "<p>Reusltat</p><br/><table><tr><th>Nom</th><th>Note</th></tr>";
+            echo "<p>Resultat</p><br/><table><tr><th>Nom</th><th>Note</th></tr>";
             do{
                 echo "<tr><td>".$data[2]." ".$data[3]."</td><td>".$data[1]."/20</td></tr>";
             }while($data = $resQues->fetch());
@@ -60,6 +61,7 @@ if(isset($_GET['idqcm']) && $_GET['idqcm'] != null && isset($_GET['act']) ) {
             }
         }
         echo "</table>";
+        echo("</fieldset>");
         echo '<style type="text/css"> tr.spaceUnder > td{  padding-top: 2em;padding-bottom: 1em;}</style>';
 
 
@@ -72,24 +74,38 @@ if(isset($_GET['idqcm']) && $_GET['idqcm'] != null && isset($_GET['act']) ) {
     $resQues->execute();
     $index = 0;
     ?>
-        <h2>Mes QCM</h2>
-        <table>
-
-
-    <?php
-
-    while ($data = $resQues->fetch()) {
-        echo '<tr><td><a href="membre.php?nav=mesqcm&idqcm='.$data[0].'&act=aff">'.$data[5].'</a></td>
-              <td>Date de creation : '.$data[3].'</td>
-              <td>Date de fin : '.$data[2].'</td>';
-        if ($data[4] == 1 ){
-            echo "<td> Est Visible </td>";
-        }else{
-            echo "<td> Est Caché </td><td><a href='membre.php?nav=mesqcm&idqcm=".$data[0]."&act=vis'> Rendre Visible</a> </td>";
-        }
-        echo "</tr>";
-    }
-    echo "</table>";
-
-
+    <fieldset>
+        <legend>Mes QCM</legend>
+        <table id="tableMesQcm">
+            <tr>
+                <th id="mesQcm">
+                    Nom
+                </th>
+                <th id="mesQcm">
+                    Date de création
+                </th>
+                <th id="mesQcm">
+                    Date de fin
+                </th>
+                <th id="mesQcm">
+                    visibilité
+                </th>
+            </tr>
+            <?php
+            while ($data = $resQues->fetch()) {
+                echo '<tr><td><a href="membre.php?nav=mesqcm&idqcm='.$data[0].'&act=aff">'.$data[5].'</a></td>
+                      <td>'.$data[3].'</td>
+                      <td>'.$data[2].'</td>';
+                if ($data[4] == 1 ){
+                    echo "<td> Est Visible </td>";
+                }else{
+                    echo "<td> Est Caché </td><td><a href='membre.php?nav=mesqcm&idqcm=".$data[0]."&act=vis'><input type='button' value='Rendre visible'/></a> </td>";
+                }
+                echo "</tr>";
+            }
+            ?>
+        </table>
+    </fieldset>
+<?php        
 }
+?>
