@@ -1,12 +1,7 @@
 <?php
 include('PDO.php');
 ?>
-<html>
-<head>
-<title>Resultat</title>
-<link rel="stylesheet" href="Style.css" />
-</head>
-<body>
+
 <?php
 if(isset($_POST['valid']) )
 {
@@ -122,7 +117,8 @@ elseif(isset($_GET['idQcm'])){
     $resNote->execute();
     $note = $resNote->fetchAll();
     $ques = "";
-    echo "<h2>".$note[0]['nom']."</h2>";
+    echo "<fieldset>";
+    echo "<legend>".$note[0]['nom']."</legend>";
     echo "<table>";
     foreach($tabResRep as $resRep)
     {
@@ -140,7 +136,7 @@ elseif(isset($_GET['idQcm'])){
             echo "/> </td></tr>";
         }else{
             $ques = $resRep["idQuestion"];
-            echo "<tr class='spaceUnder'><td>Quesion : ".$resRep["question"]."</td></tr>";
+            echo "<tr class='spaceUnder'><td>Question : ".$resRep["question"]."</td></tr>";
             echo "<tr><td>reponse : ".$resRep["reponse"]."</td><td>";
             if($resRep["juste"] == 1){
                 echo "vrai";
@@ -157,6 +153,7 @@ elseif(isset($_GET['idQcm'])){
     }
     echo "</table>";
     echo "<h3>vous avez eu ".$note[0][0]."/20</h3>";
+    echo "</fieldset>";
     echo '<style type="text/css"> tr.spaceUnder > td{  padding-top: 2em;padding-bottom: 1em;}</style>';
 }
 ?>

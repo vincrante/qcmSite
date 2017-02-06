@@ -12,6 +12,8 @@ if(isset($_GET['idQcm']))
     $ques = "";
     $indexRep = 0;
     $indexQuest = 0;
+    echo "<fieldset>";
+    echo "<legend>QCM</legend>";
     echo "<form  action='membre.php?nav=vrqcm' method='post'><table>";
     foreach($tabResRep as $resRep)
     {
@@ -24,7 +26,7 @@ if(isset($_GET['idQcm']))
             $indexRep = 1;
             $indexQuest++;
             $ques = $resRep["idQuestion"];
-            echo "<tr class='spaceUnder'><td>Quesion : ".$resRep["question"]."</td></tr>";
+            echo "<tr class='spaceUnder'><td>Question : ".$resRep["question"]."</td></tr>";
             echo "<tr><td>reponse : ".$resRep["reponse"]."</td><td><input type='checkbox' name='checkbox".$indexQuest.$indexRep."'/>";
             echo "</td></tr>";
 
@@ -35,6 +37,7 @@ if(isset($_GET['idQcm']))
     echo "</table>";
     echo ('<input type="submit" name="valid" value="Valider"/>');
     echo "</form>";
+    echo "</fieldset>";
     echo '<style type="text/css"> tr.spaceUnder > td{  padding-top: 2em;padding-bottom: 1em;}</style>';
     echo "<input type='hidden' name='index' value='".$indexQuest."'";
     }

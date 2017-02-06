@@ -46,10 +46,10 @@ if($_SESSION['role'] == "etudiant"){
                                  <?php
                                  if(date("Y-m-d") <= $res['dateFin']) {
                                     if( in_array($res['idQcm'],$tableQcm)) {
-                                        echo "<a href='membre.php?nav=vrqcm&idQcm=" . $res['idQcm'] . "'>Resultat</a>";
+                                        echo "<a href='membre.php?nav=vrqcm&idQcm=" . $res['idQcm'] . "'><input type='button' value='Resultat'/></a>";
                                     }
                                     else{
-                                        echo "<a href='membre.php?nav=frqcm&idQcm=" . $res['idQcm'] . "'>Participer</a>";
+                                        echo "<a href='membre.php?nav=frqcm&idQcm=" . $res['idQcm'] . "'><input type='button' value='Participer'/></a>";
                                     }
                                  }else{
                                       echo "QCM expirée";

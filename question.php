@@ -65,8 +65,8 @@ if (isset($_POST['insertQuestion']) && $_POST['insertQuestion'] == 'valider')
         <br/>
         <input name ="index" id="index" type="hidden" value="2"/>
         <div id="action">
-            <div id="more"><input id="buttonAjoutQuestion" type="button" value="Ajouter une question"/></div>
-            <div id="less"><input id="buttonSuppressionQuestion" type="button" value="Supprimer une question"/></div>
+            <div id="more"><input id="buttonAjoutQuestion" type="button" value="Ajouter une reponse"/></div>
+            <div id="less"><input id="buttonSuppressionQuestion" type="button" value="Supprimer une reponse"/></div>
         </div>    
         <br/>
         <input type="submit"  name="insertQuestion" value="valider">
