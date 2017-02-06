@@ -51,11 +51,11 @@ $row = $data->fetch();
                     $index = 1;
                     $idQuest = $row[0];
                     do {
-                        $quest ="<tr><td>Réponse" . $index . "  : <input type='text' name = 'reponse" . $index . "' value=" . $row[5] . "></td><td>Vrai ? : <input type='checkbox' name='check" . $index . "'";
+                        $quest ="<tr><td>Réponse" . $index . "  : <input type='text' name = 'reponse" . $index . "' value='" . $row[5] . "'></td><td>Vrai ? : <input type='checkbox' name='check" . $index . "'";
                         if ($row[6] == 1) {
                             $quest = $quest." checked ";
                         }
-                        $quest = $quest."></td><td>FeedBack : <input type='text' name='feedback" . $index . "' value=" . $row[7] . "></td><input name ='idR".$index."' type='hidden' value='". $row[3]."'/></tr>";
+                        $quest = $quest."></td><td>FeedBack : <input type='text' name='feedback" . $index . "' value='" . $row[7] . "'></td><input name ='idR".$index."' type='hidden' value='". $row[3]."'/></tr>";
                         echo $quest;
                         $index++;
                     } while ($row = $data->fetch());
