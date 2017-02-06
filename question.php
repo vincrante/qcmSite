@@ -42,29 +42,34 @@ if (isset($_POST['insertQuestion']) && $_POST['insertQuestion'] == 'valider')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
 
+<fieldset>
+    <legend> Creation de Question</legend>
+    <form action="membre.php?nav=creerquest" method="post">
+        question : <input type="text" name="question" value="<?php if (isset($_POST['question'])) echo htmlentities(trim($_POST['question'])); ?>"><br />
+        Theme : <input type="text" name="theme" value="<?php if (isset($_POST['theme'])) echo htmlentities(trim($_POST['theme'])); ?>"><br />
+        <br/>
+        <table id="reponse">
+            <tr>Réponse</tr>
+            <tr>
+                <td>Réponse 1 : <input type="text" name = "reponse1"></td>
+                <td>Vrai ? : <input type="checkbox" name="check1"></td>
+                <td>FeedBack : <input type="text" name="feedback1" value="<?php if (isset($_POST['feedBack'])) echo htmlentities(trim($_POST['feedBack'])); ?>"></td>
+            </tr>
+            <tr>
+                <td>Réponse 2 : <input type="text" name = "reponse2"></td>
+                <td>Vrai ? : <input type="checkbox" name="check2"></td>
+                <td>FeedBack : <input type="text" name="feedback2" value="<?php if (isset($_POST['feedBack'])) echo htmlentities(trim($_POST['feedBack'])); ?>"></td>
+            </tr>
 
-<h1> Creation de Question</h1>
-<form action="membre.php?nav=creerquest" method="post">
-    question : <input type="text" name="question" value="<?php if (isset($_POST['question'])) echo htmlentities(trim($_POST['question'])); ?>"><br />
-    Theme : <input type="text" name="theme" value="<?php if (isset($_POST['theme'])) echo htmlentities(trim($_POST['theme'])); ?>"><br />
-
-    <table id="reponse">
-       <tr>Réponse</tr>
-        <tr>
-            <td>Réponse 1 : <input type="text" name = "reponse1"></td>
-            <td>Vrai ? : <input type="checkbox" name="check1"></td>
-            <td>FeedBack : <input type="text" name="feedback1" value="<?php if (isset($_POST['feedBack'])) echo htmlentities(trim($_POST['feedBack'])); ?>"></td>
-        </tr>
-        <tr>
-            <td>Réponse 2 : <input type="text" name = "reponse2"></td>
-            <td>Vrai ? : <input type="checkbox" name="check2"></td>
-            <td>FeedBack : <input type="text" name="feedback2" value="<?php if (isset($_POST['feedBack'])) echo htmlentities(trim($_POST['feedBack'])); ?>"></td>
-        </tr>
-
-    </table>
+        </table>
+        <br/>
         <input name ="index" id="index" type="hidden" value="2"/>
-    <div id="more">Ajouter une reponse</div>
-    <div id="less">Supprimer une reponse</div>
-    <input type="submit"  name="insertQuestion" value="valider">
-</form>
+        <div id="action">
+            <div id="more"><input id="buttonAjoutQuestion" type="button" value="Ajouter une question"/></div>
+            <div id="less"><input id="buttonSuppressionQuestion" type="button" value="Supprimer une question"/></div>
+        </div>    
+        <br/>
+        <input type="submit"  name="insertQuestion" value="valider">
+    </form>
+</fieldset>
 <script src="ScriptQuestion.js"></script>

@@ -61,6 +61,40 @@ input{
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.3),0 1px 1px rgba(0,0,0,0.2);    
 }
 
+input#buttonAjoutQuestion
+{
+    width:50%;
+    font-weight: normal;
+    padding: 4px 8px;
+    background:#dcdcdc;
+    background-image: -webkit-linear-gradient(top,#fefefe,#dcdcdc);
+    color: black;
+    border:1px solid #bbb;
+    border-radius:4px;
+    text-align:center;
+    text-decoration: none;
+    text-shadow:#fff 0 1px 0;
+    min-width: 0;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3),0 1px 1px rgba(0,0,0,0.2);    
+}
+
+input#buttonSuppressionQuestion
+{
+    width:50%;
+    font-weight: normal;
+    padding: 4px 8px;
+    background:#dcdcdc;
+    background-image: -webkit-linear-gradient(top,#fefefe,#dcdcdc);
+    color: red;
+    border:1px solid #bbb;
+    border-radius:4px;
+    text-align:center;
+    text-decoration: none;
+    text-shadow:#fff 0 1px 0;
+    min-width: 0;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3),0 1px 1px rgba(0,0,0,0.2);    
+}
+
 .button_pageProf
 {
     width: 30%;
@@ -127,20 +161,6 @@ fieldset {
     border-image: initial;
     border-radius: 8px;
     background: #e0e0dc;
-}
-
-.pageProf
-{
-    margin-left: auto;
-    margin-right:auto;
-    width:40%;
-}
-
-.pageEtudiant
-{
-    margin-left: auto;
-    margin-right:auto;
-    width:50%;
 }
 
 .upper
@@ -221,13 +241,40 @@ li:hover a
     color: black;
 }
 
+.content
+{
+    margin-left:auto;
+    margin-right: auto;
+    width:50%;
+}
+
 .description{
     margin-left:20px;
 }
 
+td#creationQcm
+{
+    padding-top:10px;
+}
+
+td#ajouter
+{
+    padding-left:100px;
+}
+
 td
 {
-    padding-left: 100px;
+    padding-left: 20px;
+}
+
+td#pageEtudiant
+{
+    padding-left:100px;
+}
+
+td#question
+{
+    padding-left: 20px;
 }
 
 th
@@ -239,4 +286,64 @@ th
 {
     margin-left: 20px;
     margin-top: 10px;
+}
+
+input#texte
+{
+    width:80%;
+}
+
+input#button_ValiderFormulaire
+{
+    width:10%;
+}
+
+.more
+{
+    width: 39%;
+    font-weight: normal;
+    padding: 4px 8px;
+    background:#dcdcdc;
+    background-image: -webkit-linear-gradient(top,#fefefe,#dcdcdc);
+    color: black;
+    border:1px solid #bbb;
+    border-radius:4px;
+    text-align:center;
+    text-decoration: none;
+    text-shadow:#fff 0 1px 0;
+    min-width: 0;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3),0 1px 1px rgba(0,0,0,0.2);
+}
+
+.less
+{
+    width: 39%;
+    font-weight: normal;
+    padding: 4px 8px;
+    background:#dcdcdc;
+    background-image: -webkit-linear-gradient(top,#fefefe,#dcdcdc);
+    color: black;
+    border:1px solid #bbb;
+    border-radius:4px;
+    text-align:center;
+    text-decoration: none;
+    text-shadow:#fff 0 1px 0;
+    min-width: 0;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3),0 1px 1px rgba(0,0,0,0.2);
+}
+
+#action
+{
+    width:100%;
+}
+
+#action #more
+{
+    float:left;
+    width:50%;
+}
+
+#action #less
+{
+    margin-left:50%;
 }

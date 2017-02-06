@@ -1,7 +1,6 @@
 <?php
 if($_SESSION['role'] == "prof"){
 ?>
-<div class="pageProf">
     <fieldset>
         <legend>Création</legend>
         <div class="upper">
@@ -13,7 +12,6 @@ if($_SESSION['role'] == "prof"){
             <a href="membre.php?nav=mesqcm"><input id="button_pageProf" type="button" value="Mes QCM"/></a>   
         </div>        
     </fieldset>
-</div>
 <?php
 }
 ?>

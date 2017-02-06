@@ -7,46 +7,44 @@ if($_SESSION['role'] == "etudiant"){
     $tabRes = $req->fetchAll();
 ?>
 
-<div class="pageEtudiant">
-    <fieldset>
-        <legend>Liste des QCM</legend>
-        <table>
-            <tr>
-                <th>
-                    Nom
-                </th>
-                <th>
-                    Date de fin
-                </th>
-                <th>
-                    Action
-                </th>
-            </tr>
-            <?php
-                foreach($tabRes as $res)
-                {
-                ?>
+<fieldset>
+    <legend>Liste des QCM</legend>
+    <table>
+        <tr>
+            <th>
+                Nom
+            </th>
+            <th>
+                Date de fin
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+        <?php
+            foreach($tabRes as $res)
+            {
+            ?>
 
-                 <tr>
-                     <td>
-                        <?php echo($res['nom']); ?>
-                     </td>
-                     <td>
-                        <?php echo($res['dateFin']); ?>
-                     </td>
-                     <td>
-                         <div class="action">
-                             <a href="membre.php?nav=frqcm&idQcm=<?php echo($res['idQcm']); ?>"><input type="button" id="button_pageEtudiant" value="Participer" /></a>
-                             <a href="membre.php?nav=vrqcm&idQcm=<?php echo($res['idQcm']); ?>"><input type="button" id="button_pageEtudiant" value="Resultat" /></a>
-                         </div>
-                     </td>
-                 </tr>
-             <?php
-            }
-         }
-         ?>
-        </table>
-    </fieldset>
-</div>
+             <tr>
+                 <td id="pageEtudiant">
+                    <?php echo($res['nom']); ?>
+                 </td>
+                 <td id="pageEtudiant">
+                    <?php echo($res['dateFin']); ?>
+                 </td>
+                 <td id="pageEtudiant">
+                     <div class="action">
+                         <a href="membre.php?nav=frqcm&idQcm=<?php echo($res['idQcm']); ?>"><input type="button" id="button_pageEtudiant" value="Participer" /></a>
+                         <a href="membre.php?nav=vrqcm&idQcm=<?php echo($res['idQcm']); ?>"><input type="button" id="button_pageEtudiant" value="Resultat" /></a>
+                     </div>
+                 </td>
+             </tr>
+         <?php
+        }
+     }
+     ?>
+    </table>
+</fieldset>
 
 

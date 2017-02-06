@@ -36,42 +36,44 @@ if (isset($_POST['creerQcm']) && $_POST['creerQcm'] == 'valider' && isset($_SESS
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     </head>
     <body>
-        <h1> Creation de QCM</h1>
-        <form action="membre.php?nav=creerqcm" method="post">
-            <table>
-                <tr>
-                    <td>Nom du QCM :</td><td> <input type="text" name="nom"/></td>
-                </tr>
-                <tr>
-                    <td>Date Limite</td><td> <input type="date" name="dateF" min="<?php echo date("Y-m-d")?>"/></td>
-                </tr>
-                <tr>
-                    <td>Visible</td><td> <input type="checkbox" name="visible"/></td>
-                </tr>
-                <tr>
-                    <td>Ajouter Question :
-                </tr>
-                <tr><td>
-                    <select id="choix">
-                        <?php
-                            $resQues = $monPDO->prepare('SELECT * FROM question');
-                            $resQues->execute();
-                            $index=0;
-                            while($data = $resQues->fetch()) {
-                                echo "<option value='".$data[0]."'>".$data[1]."</option>\n";
-                            }
-                        ?>
-                    </select></td>
-                    <td id="ajouter"> ajouter</td>
-                </tr>
+        <fieldset>
+            <legend> Creation de QCM</legend>
+            <form action="membre.php?nav=creerqcm" method="post">
+                <table>
+                    <tr>
+                        <td>Nom du QCM :</td><td> <input type="text" id="texte" name="nom"/></td>
+                    </tr>
+                    <tr>
+                        <td>Date Limite</td><td> <input type="date" id="texte" name="dateF" min="<?php echo date("Y-m-d")?>"/></td>
+                    </tr>
+                    <tr>
+                        <td>Visible</td><td> <input type="checkbox" name="visible"/></td>
+                    </tr>
+                    <tr>
+                        <td>Ajouter Question :</td>
+                    </tr>
+                    <tr><td id="creationQCM">
+                        <select id="choix">
+                            <?php
+                                $resQues = $monPDO->prepare('SELECT * FROM question');
+                                $resQues->execute();
+                                $index=0;
+                                while($data = $resQues->fetch()) {
+                                    echo "<option value='".$data[0]."'>".$data[1]."</option>\n";
+                                }
+                            ?>
+                        </select></td>
+                        <td id="ajouter"><input type="button" id="buttonAjoutQuestion" value="ajouter"/></td>
+                    </tr>
 
-            </table>
-            <table id="question">
+                </table>
+                <table id="question">
 
-            </table>
-            <input type="hidden" id="index" name="index" value="0">
-            <input type="submit" name="creerQcm" value="valider">
-        </form>
+                </table>
+                <input type="hidden" id="index" name="index" value="0">
+                <input type="submit" id="button_ValiderFormulaire" name="creerQcm" value="valider">
+            </form>
+        </fieldset>
     </body>
     <script src="creerQcm.js"></script>
 </html>
