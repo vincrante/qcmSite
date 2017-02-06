@@ -51,7 +51,6 @@ if (!isset($_SESSION['login'])) {
                 }else{
                     include('pageProf.php');
                 }
-
             }
             elseif($_SESSION['role'] == "etudiant")
             {
