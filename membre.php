@@ -43,19 +43,13 @@ Bienvenue <?php echo htmlentities(trim($_SESSION['login'])); ?> !<br />
         }
 
     }
-    elseif($_SESSION['role'] == "Etudiant")
+    elseif($_SESSION['role'] == "etudiant")
     {
         if(isset($_GET['nav'])){
             switch ($_GET['nav']){
-                case 'qcm':
-                    include ('pageQcm.php');
-                    break;
-                case 'creerquest':
-                    include ('question.php');
-                    break;
-                case 'modifquest':
-                    include ('modifierQuestion.php');
-                    break;
+                default :
+                    include('pageEtudiant.php');
+
 
             }
         }else{
