@@ -1,6 +1,5 @@
 <?php
 include('PDO.php');
-session_start();
 ?>
 <html>
 <head>
@@ -9,24 +8,28 @@ session_start();
 </head>
 <body>
 <?php
-if(isset($_POST['valid']))
+if(isset($_POST['valid']) )
 {
+
     $note = 0 ;
     $reqQuest = $monPDO->prepare('SELECT * '
                           . 'FROM QUESTION as QU, ASSOQCMQUEST as A, QCM as QC '
                           . 'WHERE QU.idQuestion = A.idQuestion '
                           . 'AND A.idQcm = QC.idQcm '
-                          . 'AND QC.nom ="'.$_POST['qcm'].'"');
+                          . 'AND QC.idQcm ="'.$_POST['qcm'].'"');
     $reqQuest->execute();
     $tabResQuest = $reqQuest->fetchAll();
-    
+    $indexQuest = 0;
+    $indexRep = 0;
+    $note= 0;
     foreach($tabResQuest as $resQuest)
     {
+
 ?>
 <table>
     <tr>
         <td>
-            <?php echo($resQuest['question']); ?>
+            <?php echo($resQuest['question']);$indexQuest++; ?>
         </td>
         <td>
             <?php
@@ -37,37 +40,51 @@ if(isset($_POST['valid']))
                 $reqRep->execute();
                 $tabResRep = $reqRep->fetchAll();
             ?>
-            <form>
+
             <?php
+
+            $indexRep = 0;
+            $juste = 1;
             foreach($tabResRep as $resRep)
             {
+
+                $indexRep++;
                 if($resRep['juste'] == 1)
                 {
                     ?>
-                        <label class='juste'> <input type="radio" value="<?php $resRep['reponse'] ?>" <?php if($resRep['reponse'] == $_POST[$resQuest['question']]){ echo('checked="checked"'); $note += 1; }?>/><?php echo($resRep['reponse']); ?></label>
+                        <label class='juste'> <input type="checkbox" value="<?php $resRep['reponse'] ?>" <?php if(isset($_POST['checkbox'.$indexQuest.$indexRep])){ echo('checked="checked"');}else{$juste=0;}?>disabled/><?php echo($resRep['reponse']); ?></label>
                     <?php
                 }
                 else {
                     ?>
-                       <label class='faux'> <input type="radio" value="<?php $resRep['reponse'] ?>" <?php if($resRep['reponse'] == $_POST[$resQuest['question']]) echo('checked="checked"')?>/><?php echo($resRep['reponse']); ?></label>
+                       <label class='faux'> <input type="checkbox" value="<?php $resRep['reponse'] ?>"
+                               <?php if(isset($_POST['checkbox'.$indexQuest.$indexRep])){
+                                   echo('checked="checked"');
+                                   $juste = 0;
+                               } ?>
+                                                   disabled />
+                               <?php echo($resRep['reponse']) ?>
+                                            </label>
                     <?php
                     }
                 echo('<br/>');
+                if(isset($_POST['checkbox'.$indexQuest.$indexRep])){
+
+                    $reqResEtu = $monPDO->prepare('INSERT INTO resultat '
+                                                  . 'VALUES("'.$_SESSION['id'].'", "'.$resRep['idReponse'].'", "'.$_POST['qcm'].'")');
+                    $reqResEtu->execute();
+                }
             }
-            
-                $reqSelectReponse = $monPDO->prepare('SELECT idReponse '
-                                                    . 'FROM reponse '
-                                                    . 'WHERE reponse = "'.$_POST[$resQuest['question']].'"');
-                $reqSelectReponse->execute();
-                $tabSelectReponse = $reqSelectReponse->fetchAll();
-                
-                $idReponse = $tabSelectReponse[0];
-                
-                $reqResEtu = $monPDO->prepare('INSERT INTO resultat '
-                                              . 'VALUES("'.$_SESSION['id'].'", "'.$idReponse['idReponse'].'");');
-                $reqResEtu->execute();
+                if($juste == 1){
+                    $note++;
+                    echo '<td>Juste</td>';
+                }
+                else{
+                    echo '<td>Faux</td>';
+                }
+
             ?>
-            </form>
+
         </td>
     </tr>
 </table>
@@ -75,29 +92,71 @@ if(isset($_POST['valid']))
     }
 echo('<br/>');
 echo ('</form>');
-
-    $reqNbQuest = $monPDO->prepare('SELECT count(*) '
-                          . 'FROM QUESTION as QU, ASSOQCMQUEST as A, QCM as QC '
-                          . 'WHERE QU.idQuestion = A.idQuestion '
-                          . 'AND A.idQcm = QC.idQcm '
-                          . 'AND QC.nom ="'.$_POST['qcm'].'"');
-    $reqNbQuest->execute();
-    $tabResNbQuest = $reqNbQuest->fetchAll();
-    $nbQuest = $tabResNbQuest[0];
-    
-    $reqIdQcm = $monPDO->prepare('SELECT idQcm '
-                                        . 'FROM qcm '
-                                        . 'WHERE nom = "'.$_POST['qcm'].'"');
-    $reqIdQcm->execute();
-    $tabIdQcm = $reqIdQcm->fetchAll();    
-    $idQcm = $tabIdQcm[0];
-    
-    $note = (($note / $nbQuest[0])*20);
+    $note = (($note / $indexQuest)*20);
     
     $reqResEtu = $monPDO->prepare('INSERT INTO note '
-                . 'VALUES("'.$_SESSION['id'].'", "'.$idQcm['0'].'", "'.$note.'");');
+                . 'VALUES("'.$_SESSION['id'].'", "'.$_POST['qcm'].'", "'.$note.'");');
     $reqResEtu->execute();    
     
-    echo("Votre note sur ce QCM est de : ".$note);
+    echo("Votre note sur ce QCM est de : ".$note."/20");
+}
+elseif(isset($_GET['idQcm'])){
+
+    $reqRep = $monPDO->prepare('SELECT r.idQuestion,qu.question, qu.theme, r.reponse,r.juste, r.feedback,r.idReponse FROM  question qu, reponse r,assoqcmquest ass
+                                    WHERE r.idQuestion = qu.idQuestion
+                                    AND qu.idQuestion = ass.idQuestion
+                                    AND ass.idQcm = "'.$_GET['idQcm'].'"');
+    $reqRep->execute();
+    $tabResRep = $reqRep->fetchAll();
+    $resultat = $monPDO->prepare('SELECT r.idReponse, re.idQuestion FROM resultat r, reponse re
+                                    WHERE re.idReponse = r.idReponse
+                                    AND r.idCompte = "'.$_SESSION['id'].'"                                  
+                                    AND r.idQcm = "'.$_GET['idQcm'].'"');
+    $resultat->execute();
+    $tableResultat = $resultat->fetchAll(PDO::FETCH_COLUMN, 0);
+
+    $resNote = $monPDO->prepare('SELECT n.note,q.nom FROM note n, qcm q
+                                    WHERE n.idCompte = "'.$_SESSION['id'].'"                                  
+                                    AND n.idQcm = q.idQcm
+                                    AND q.idQcm = "'.$_GET['idQcm'].'"');
+    $resNote->execute();
+    $note = $resNote->fetchAll();
+    $ques = "";
+    echo "<h2>".$note[0]['nom']."</h2>";
+    echo "<table>";
+    foreach($tabResRep as $resRep)
+    {
+
+        if($resRep["idQuestion"] == $ques){
+            echo "<tr><td>reponse : ".$resRep["reponse"]."</td><td>";
+            if($resRep["juste"] == 1){
+                echo "Vrai";
+            }else{
+                echo "Faux";
+            }
+            echo "</td><td>".$resRep['feedback']."</td>";
+            echo "<td><input type='checkbox' disabled";
+            if (in_array($resRep["idReponse"],$tableResultat )){echo "checked";}
+            echo "/> </td></tr>";
+        }else{
+            $ques = $resRep["idQuestion"];
+            echo "<tr class='spaceUnder'><td>Quesion : ".$resRep["question"]."</td></tr>";
+            echo "<tr><td>reponse : ".$resRep["reponse"]."</td><td>";
+            if($resRep["juste"] == 1){
+                echo "vrai";
+            }else{
+                echo "Faux";
+            }
+            echo "</td><td>".$resRep['feedback']."</td>";
+            echo "<td><input type='checkbox' disabled";
+            if (in_array($resRep["idReponse"],$tableResultat )){echo " checked";}
+            echo "/> </td></tr>";
+
+
+        }
+    }
+    echo "</table>";
+    echo "<h3>vous avez eu ".$note[0][0]."/20</h3>";
+    echo '<style type="text/css"> tr.spaceUnder > td{  padding-top: 2em;padding-bottom: 1em;}</style>';
 }
 ?>

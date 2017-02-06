@@ -1,54 +1,43 @@
 <?php
 include('PDO.php');
 if(isset($_SESSION['role']) && $_SESSION['role'] == "etudiant"){
-if(isset($_POST['begin']))
+if(isset($_GET['idQcm']))
 {
-    $reqQuest = $monPDO->prepare('SELECT * '
-                          . 'FROM QUESTION as QU, ASSOQCMQUEST as A, QCM as QC '
-                          . 'WHERE QU.idQuestion = A.idQuestion '
-                          . 'AND A.idQcm = QC.idQcm '
-                          . 'AND QC.nom ="'.$_POST["begin"].'"');
-    $reqQuest->execute();
-    $tabResQuest = $reqQuest->fetchAll();
-echo('<form name="'.$_POST["begin"].'" method="POST" action="pageResultat.php">');
-    foreach($tabResQuest as $resQuest)
+    $reqRep = $monPDO->prepare('SELECT r.idQuestion,qu.question, qu.theme, r.reponse,r.juste, r.feedback FROM  question qu, reponse r,assoqcmquest ass
+                                    WHERE r.idQuestion = qu.idQuestion
+                                    AND qu.idQuestion = ass.idQuestion
+                                    AND ass.idQcm = "'.$_GET['idQcm'].'"');
+    $reqRep->execute();
+    $tabResRep = $reqRep->fetchAll();
+    $ques = "";
+    $indexRep = 0;
+    $indexQuest = 0;
+    echo "<form  action='membre.php?nav=vrqcm' method='post'><table>";
+    foreach($tabResRep as $resRep)
     {
-?>
-<table>
-    <tr>
-        <td>
-            <?php echo($resQuest['question']); ?>
-        </td>
-        <td>
-            <?php
-                $reqRep = $monPDO->prepare('SELECT * '
-                          . 'FROM QUESTION as Q, REPONSE as R '
-                          . 'WHERE Q.idQuestion = R.idQuestion '
-                          . 'AND Q.idQuestion ='.$resQuest['idQuestion']);
-                $reqRep->execute();
-                $tabResRep = $reqRep->fetchAll();
-            ?>
+        if($resRep["idQuestion"] == $ques){
+            $indexRep++;
+            echo "<tr><td>reponse : ".$resRep["reponse"]."</td><td><input type='checkbox' name='checkbox".$indexQuest.$indexRep."'/>";
 
-            <?php
-            foreach($tabResRep as $resRep)
-            {
-                echo('<input type="radio" name="'.$resQuest['question'].'" value="'.$resRep['reponse'].'"/>'.$resRep['reponse']);
-                echo('<br/>');
-            }
-            ?>
-        </td>
-    </tr>
-</table>
-<?php
+            echo "</td></tr>";
+        }else{
+            $indexRep = 1;
+            $indexQuest++;
+            $ques = $resRep["idQuestion"];
+            echo "<tr class='spaceUnder'><td>Quesion : ".$resRep["question"]."</td></tr>";
+            echo "<tr><td>reponse : ".$resRep["reponse"]."</td><td><input type='checkbox' name='checkbox".$indexQuest.$indexRep."'/>";
+            echo "</td></tr>";
+
+        }
+
     }
-echo('<br/>');
-echo ('<input type="hidden" name="qcm" value ="'.$_POST['begin'].'"/>');
-echo ('<input type="submit" name="valid" value="Valider"/>');
-echo ('</form>');
-}
-else
-{
-    header("Location: index.php");
-}
+    echo ('<input type="hidden" name="qcm" value ="'.$_GET['idQcm'].'"/>');
+    echo "</table>";
+    echo ('<input type="submit" name="valid" value="Valider"/>');
+    echo "</form>";
+    echo '<style type="text/css"> tr.spaceUnder > td{  padding-top: 2em;padding-bottom: 1em;}</style>';
+    echo "<input type='hidden' name='index' value='".$indexQuest."'";
+    }
+
 }
 ?>
