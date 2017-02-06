@@ -1,3 +1,8 @@
+body
+{
+    font-family: "Segoe UI", "Verdana", sans-serif;
+}
+
 .juste
 {
     color: chartreuse;
@@ -13,7 +18,7 @@
     width: 50%;
     margin-left:auto;
     margin-right:auto;
-    border-radius: 0 10 10px 10px;
+    border-radius: 10px;
     clear: both;
     color: #333;
     overflow: auto;
@@ -26,7 +31,12 @@ legend
     text-align:center;
 }
 
-input, textarea {
+li
+{
+    list-style-type: none;
+}
+
+input{
     margin-top: 15px;
     margin-left: 50px;
     width: 25%;
@@ -37,6 +47,23 @@ input, textarea {
 
 .button
 {
+    font-weight: normal;
+    padding: 4px 8px;
+    background:#dcdcdc;
+    background-image: -webkit-linear-gradient(top,#fefefe,#dcdcdc);
+    color: black;
+    border:1px solid #bbb;
+    border-radius:4px;
+    text-align:center;
+    text-decoration: none;
+    text-shadow:#fff 0 1px 0;
+    min-width: 0;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3),0 1px 1px rgba(0,0,0,0.2);    
+}
+
+.button_pageProf
+{
+    width: 30%;
     font-weight: normal;
     padding: 4px 8px;
     background:#dcdcdc;
@@ -83,4 +110,115 @@ fieldset {
     border-image: initial;
     border-radius: 8px;
     background: #e0e0dc;
+}
+
+.pageProf
+{
+    margin-left: auto;
+    margin-right:auto;
+    width:40%;
+}
+
+.pageEtudiant
+{
+    margin-left: auto;
+    margin-right:auto;
+    width:40%;
+}
+
+.upper
+{
+    width:92%;
+}
+
+.lower
+{
+    width:92%;
+}
+
+ul
+{
+    background: #b8b8ba;
+    box-shadow: 0px 0px 9px rgba(0,0,0,0.15);
+    padding: 0 0px;
+    list-style: none;
+    text-align: center;
+    position: relative;
+    font-weight: bold;
+    width: 100%;
+    display: inline-table;
+}
+
+.header
+{
+    margin-bottom: -16px;
+}
+
+li
+{
+    width: 20%;
+    display: inline-block;
+}
+
+li a
+{
+    display: block;
+    padding: 25px 40px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.button:hover
+{
+    background: #ededed;
+    border-color: #acacac;
+    text-decoration: none;
+}
+
+ul li a:hover 
+{
+    background: #4b545f;
+}
+
+li:hover 
+{
+        background: #4b545f;
+        background: linear-gradient(top, #4f5964 0%, #5f6975 40%);
+        background: -moz-linear-gradient(top, #4f5964 0%, #5f6975 40%);
+        background: -webkit-linear-gradient(top, #4f5964 0%,#5f6975 40%);
+}
+
+li:hover a 
+{
+        color: #fff;
+}
+.presentation
+{
+    font-family: "Segoe UI", "Verdana", sans-serif;
+    text-align: left;
+    padding-right: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #b1c903;
+    font-weight: 900;
+    color: black;
+}
+
+.description{
+    margin-left:20px;
+}
+
+td
+{
+    padding-left: 80px;
+}
+
+th
+{
+    padding-left:80px;
+}
+
+.action
+{
+    margin-top: 10px;
 }
