@@ -9,22 +9,58 @@ if (!isset($_SESSION['login'])) {
 
 <html>
 <head>
-<title>Espace membre</title>
+ <title>Espace membre</title>
 </head>
-
 <body>
+<a href="membre.php"><h2>Acceuil</h2></a><br/>
+<a href="deconnexion.php">Déconnexion</a><br/>
 Bienvenue <?php echo htmlentities(trim($_SESSION['login'])); ?> !<br />
 <?php echo('Vous êtes un '.$_SESSION['role']);?><br/>
 <?php 
     if($_SESSION['role'] == "prof"){
-        include('pageProf.php');
+        if(isset($_GET['nav'])){
+            switch ($_GET['nav']){
+                case 'creerqcm':
+                    include ('creerQcm.php');
+                    break;
+                case 'creerquest':
+                    include ('question.php');
+                    break;
+                case 'modifquest':
+                    include ('modifierQuestion.php');
+                    break;
+                case 'listquest':
+                    include ('listQuestion.php');
+                    break;
+                default:
+                    include('pageProf.php');
+            }
+        }else{
+            include('pageProf.php');
+        }
+
     }
-    else
+    elseif($_SESSION['role'] == "Etudiant")
     {
-        include('pageEtudiant.php');
+        if(isset($_GET['nav'])){
+            switch ($_GET['nav']){
+                case 'qcm':
+                    include ('pageQcm.php');
+                    break;
+                case 'creerquest':
+                    include ('question.php');
+                    break;
+                case 'modifquest':
+                    include ('modifierQuestion.php');
+                    break;
+
+            }
+        }else{
+            include('pageEtudiant.php');
+        }
+
     }
 ?>
-<br/>
-<a href="deconnexion.php">Déconnexion</a>
+
 </body>
 </html>

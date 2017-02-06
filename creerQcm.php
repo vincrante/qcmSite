@@ -1,17 +1,20 @@
 <?php
 include('PDO.php');
-if (isset($_POST['creerQcm']) && $_POST['creerQcm'] == 'valider' )
+
+
+if (isset($_POST['creerQcm']) && $_POST['creerQcm'] == 'valider' && isset($_SESSION[id]))
 {
+    $id = $_SESSION[id];
     $check = 0;
     if(isset($_POST["visible"])){
         $check = 1;
     }
-    //'.$_SESSION['id'].'
+
     echo 'INSERT INTO qcm (idcrea,dateFin,dateCrea,visible,nom) 
-                              VALUES ("4","'.$_POST['dateF'].'","'.date("Y-m-d").'","'.$check.'","'.$_POST['nom'].'")';
+                              VALUES ("'.$id.'","'.$_POST['dateF'].'","'.date("Y-m-d").'","'.$check.'","'.$_POST['nom'].'")';
     echo "<br/>";
     $data = $monPDO->prepare('INSERT INTO qcm (idcrea,dateFin,dateCrea,visible,nom) 
-                              VALUES ("4","'.$_POST['dateF'].'","'.date("Y-m-d").'","'.$check.'","'.$_POST['nom'].'")');
+                              VALUES ("'.$id.'","'.$_POST['dateF'].'","'.date("Y-m-d").'","'.$check.'","'.$_POST['nom'].'")');
     $data->execute();
     $lastQcm = $monPDO->lastInsertId();
     $index = $_POST['index'];
@@ -24,11 +27,8 @@ if (isset($_POST['creerQcm']) && $_POST['creerQcm'] == 'valider' )
     echo $qcm;
     $dataQCM = $monPDO->prepare($qcm);
     $dataQCM->execute();
-}else{
-
-
+    header('location: membre.php');
 }
-
 ?>
 <html>
     <head>
@@ -37,7 +37,7 @@ if (isset($_POST['creerQcm']) && $_POST['creerQcm'] == 'valider' )
     </head>
     <body>
         <h1> Creation de QCM</h1>
-        <form action="creerQcm.php" method="post">
+        <form action="membre.php?nav=creerqcm" method="post">
             <table>
                 <tr>
                     <td>Nom du QCM :</td><td> <input type="text" name="nom"/></td>

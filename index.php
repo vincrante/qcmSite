@@ -39,6 +39,9 @@ if (isset($_POST['connexion']) && $_POST['connexion'] == 'Connexion')
 	else {
 	$erreur = 'Au moins un des champs est vide.';
 	}
+}elseif(isset($_SESSION['id'])){
+    header('Location: membre.php');
+    exit();
 }
 ?>
 <html>

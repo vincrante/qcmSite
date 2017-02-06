@@ -8,7 +8,6 @@ if (isset($_POST['insertQuestion']) && $_POST['insertQuestion'] == 'valider')
                               VALUES ("'.$_POST['question'].'","'.$_POST['theme'].'")');
     $data->execute();
     $lastQuest = $monPDO->lastInsertId();
-        //$res = $data->fetch();
     $index = $_POST['index'];
     $reponse = 'INSERT INTO reponse (idQuestion,reponse,juste,feedBack) VALUES ';
     for ($i = 1; $i < $index ; $i++){
@@ -41,14 +40,11 @@ if (isset($_POST['insertQuestion']) && $_POST['insertQuestion'] == 'valider')
 
 ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<html>
-<head>
-<title>Question</title>
-</head>
 
-<body>
-Question :<br />
-<form action="question.php" method="post">
+
+
+<h1> Creation de Question</h1>
+<form action="membre.php?nav=creerquest" method="post">
     question : <input type="text" name="question" value="<?php if (isset($_POST['question'])) echo htmlentities(trim($_POST['question'])); ?>"><br />
     Theme : <input type="text" name="theme" value="<?php if (isset($_POST['theme'])) echo htmlentities(trim($_POST['theme'])); ?>"><br />
 
@@ -68,6 +64,7 @@ Question :<br />
     </table>
         <input name ="index" id="index" type="hidden" value="2"/>
     <div id="more">Ajouter une reponse</div>
+    <div id="less">Supprimer une reponse</div>
     <input type="submit"  name="insertQuestion" value="valider">
 </form>
 <script src="ScriptQuestion.js"></script>

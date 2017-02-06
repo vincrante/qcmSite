@@ -10,7 +10,7 @@ if(isset($_POST['begin']))
                           . 'AND QC.nom ="'.$_POST["begin"].'"');
     $reqQuest->execute();
     $tabResQuest = $reqQuest->fetchAll();
-echo('<form name="'.$_POST["begin"].'" method="POST" action="pageResultat.php">');    
+echo('<form name="'.$_POST["begin"].'" method="POST" action="pageResultat.php">');
     foreach($tabResQuest as $resQuest)
     {
 ?>

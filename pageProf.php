@@ -5,9 +5,9 @@ if($_SESSION['role'] == "prof"){
     <li>
         <a>Création</a>
         <ul id="sub_menu">
-            <li><a href="creerQcm.php">Créer QCM</a></li>
-            <li><a href="question.php">Créer Question</a></li>
-            <li><a href="modifierQuestion.php">Modifier Question</a></li>
+            <li><a href="membre.php?nav=creerqcm">Créer QCM</a></li>
+            <li><a href="membre.php?nav=creerquest">Créer Question</a></li>
+            <li><a href="membre.php?nav=listquest">liste des Question</a></li>
         </ul>
     </li>
 </ul>

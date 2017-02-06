@@ -17,7 +17,8 @@ $row = $data->fetch();
     </head>
 
     <body>
-        Question :<br/>
+        <h2>Modifier question</h2>
+        <a href="membre.php?nav=listquest">liste des Question</a><br/>
         <form action="modifierQuestion.php" method="post">
             question : <input type="text" name="question" value="<?php echo $row[1] ?>"><br/>
             Theme : <input type="text" name="theme" value="<?php echo $row[2] ?>"><br/>
