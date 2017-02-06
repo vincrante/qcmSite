@@ -47,6 +47,7 @@ Bienvenue <?php echo htmlentities(trim($_SESSION['login'])); ?> !<br />
     {
         if(isset($_GET['nav'])){
             switch ($_GET['nav']){
+
                 default :
                     include('pageEtudiant.php');
 

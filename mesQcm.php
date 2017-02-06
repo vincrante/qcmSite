@@ -7,19 +7,67 @@ if(isset($_GET['idqcm']) && $_GET['idqcm'] != null && isset($_GET['act']) ) {
         $resQues->execute();
         header('location: membre.php?nav=mesqcm');
     }else{
-        $resQues = $monPDO->prepare(' SELECT * 
-                              FROM qcm q 
-                              WHERE q.idCrea = "' . $_SESSION['id'] . '"
-                              AND q.idQcm = "'.$_GET['idqcm'].'"');
+        $resQues = $monPDO->prepare(' SELECT q.nom,n.note,c.nom,c.prenom
+                                FROM qcm q, note n,compte c
+                                WHERE q.idCrea = "' . $_SESSION['id'] . '"
+                                AND n.idQcm = q.idQcm
+                                and c.idCompte = n.idCompte
+                                AND q.idQcm = "'.$_GET['idqcm'].'"');
+
+
         $resQues->execute();
         $data = $resQues->fetch();
-        echo "<h1>".$data[5]."</h1>";
+        echo "<h2>".$data[0]."</h2>";
+
+        if($data[1]!=null){
+            echo "<p>Reusltat</p><br/><table><tr><th>Nom</th><th>Note</th></tr>";
+            do{
+                echo "<tr><td>".$data[2]." ".$data[3]."</td><td>".$data[1]."/20</td></tr>";
+            }while($data = $resQues->fetch());
+            echo "</table>";
+        }else{
+            echo "<p>Aucun élève n'a remplies le qcm</p>";
+        }
+
+        $reqRep = $monPDO->prepare('SELECT r.idQuestion,qu.question, qu.theme, r.reponse,r.juste, r.feedback FROM  question qu, reponse r,assoqcmquest ass
+                                    WHERE r.idQuestion = qu.idQuestion
+                                    AND qu.idQuestion = ass.idQuestion
+                                    AND ass.idQcm = "'.$_GET['idqcm'].'"');
+        $reqRep->execute();
+        $tabResRep = $reqRep->fetchAll();
+        $ques = "";
+        echo "<table>";
+        foreach($tabResRep as $resRep)
+        {
+            if($resRep["idQuestion"] == $ques){
+                echo "<tr><td>reponse : ".$resRep["reponse"]."</td><td>";
+                    if($resRep["juste"] == 1){
+                        echo "Vrai";
+                    }else{
+                        echo "Faux";
+                    }
+                echo "</td></tr>";
+            }else{
+                $ques = $resRep["idQuestion"];
+                echo "<tr class='spaceUnder'><td>Quesion : ".$resRep["question"]."</td><td> theme : ".$resRep["theme"]."</td></tr>";
+                echo "<tr><td>reponse : ".$resRep["reponse"]."</td><td>";
+                if($resRep["juste"] == 1){
+                    echo "vrai";
+                }else{
+                    echo "Faux";
+                }
+                echo "</td></tr>";
+            }
+        }
+        echo "</table>";
+        echo '<style type="text/css"> tr.spaceUnder > td{  padding-top: 2em;padding-bottom: 1em;}</style>';
+
 
 
     }
 }else{
     $resQues = $monPDO->prepare(' SELECT * 
-                              FROM qcm
+                              FROM qcm q 
                               WHERE idCrea = "' . $_SESSION['id'] . '"');
     $resQues->execute();
     $index = 0;
